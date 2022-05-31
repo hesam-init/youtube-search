@@ -3,13 +3,29 @@
 @tailwind components;
 @tailwind utilities;
 
+$bg-color: #2d3436;
+
 body {
-  background-color: #2d3436;
+  background-color: $bg-color;
 }
 
 .centered {
-  position: fixed;
   top: 50%;
   left: 50%;
+  position: fixed;
   transform: translate(-50%, -50%);
+}
+
+.abcentered {
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.glass {
+  backdrop-filter: blur(1px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
