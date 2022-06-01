@@ -1,7 +1,8 @@
 // node modules:
+import cors from "cors";
 import express from "express";
-import path, { dirname } from "path";
 import searchApi from "./search.js";
+import path, { dirname } from "path";
 
 // express config:
 const app = express();
@@ -10,6 +11,10 @@ const port = 3000;
 // express middleware:
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// fix cors:
+app.use(cors());
+app.options("*", cors());
 
 // server route:
 const buildPath = path.resolve(dirname("./"), "../client/build");
